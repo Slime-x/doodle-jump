@@ -1,9 +1,14 @@
 extends Camera2D
 
+@export var player: CharacterBody2D
+var highest_y: float
 
+func _ready() -> void:
+	highest_y = global_position.y
 
-
-func _process(delta: float) -> void:
-	pass
-func position_change(x):
-	position.y = x - 200
+func _process(_delta: float) -> void:
+	if player.global_position.y < highest_y:
+		highest_y = player.global_position.y
+		global_position.y = highest_y
+	if player.global_position.y > highest_y + 350:
+		player.restart()

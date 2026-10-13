@@ -697,6 +697,7 @@ position = Vector2(80, -455)
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1214437316]
 tile_set = SubResource("TileSet_mwfs3")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1062649950]
-position = Vector2(304, 47)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1522382551 node_paths=PackedStringArray("player")]
+position = Vector2(307, 26)
 script = ExtResource("5_iywne")
+player = NodePath("../player")

@@ -7,17 +7,10 @@ const JUMP_VELOCITY = -400.0
 var jumping
 var idle
 var highest_y = 0
-@export var start_position = Vector2(70,20)
+var restarting = false
+@export var start_position = Vector2(307,26)
 
 func _physics_process(delta: float) -> void:
-	
-	
-	
-	if position.y > highest_y and velocity.y < 0:
-		highest_y = position.y
-		camera.position_change(highest_y)
-		#if velocity.y < 0:
-			
 	
 	if is_on_floor():
 		jumping = false
@@ -54,3 +47,7 @@ func _physics_process(delta: float) -> void:
 		
 
 	move_and_slide()
+
+func restart():
+	get_tree().reload_current_scene()
+	
