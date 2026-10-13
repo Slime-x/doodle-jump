@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dd4oujcd4yxeq"]
+
+[ext_resource type="Script" uid="uid://bbhmxa2342n7h" path="res://scripts/trampoline.gd" id="1_nytqh"]
+[ext_resource type="Texture2D" uid="uid://d4k55nsyqpiuf" path="res://assets/spritesheet-tiles-default.png" id="2_1ne3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gay0"]
+atlas = ExtResource("2_1ne3y")
+region = Rect2(65, 455, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64cc3"]
+atlas = ExtResource("2_1ne3y")
+region = Rect2(130, 455, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtct1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gay0")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64cc3")
+}],
+"loop": 0,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwfs3"]
+size = Vector2(57, 4)
+
+[node name="trampoline" type="Area2D" unique_id=1978877864]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_nytqh")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1625981049]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_qtct1")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026523699]
+position = Vector2(-0.5, -32)
+shape = SubResource("RectangleShape2D_mwfs3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
