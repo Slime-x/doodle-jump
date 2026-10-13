@@ -9,6 +9,7 @@ var idle
 var highest_y = 0
 var restarting = false
 @export var start_position = Vector2(307,26)
+var score = 1
 
 func _physics_process(delta: float) -> void:
 	
@@ -49,5 +50,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func restart():
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene.call_deferred()
 	

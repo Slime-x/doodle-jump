@@ -673,12 +673,27 @@ position = Vector2(275, 315)
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1214437316]
 tile_set = SubResource("TileSet_mwfs3")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1522382551 node_paths=PackedStringArray("player")]
-position = Vector2(307, 26)
-script = ExtResource("5_iywne")
-player = NodePath("../player")
-
 [node name="platform_spawner" type="Node" parent="." unique_id=1591493404]
 script = ExtResource("5_p57ef")
 
 [node name="platforms" type="Node" parent="." unique_id=1320457500]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1522382551 node_paths=PackedStringArray("player")]
+z_index = 1
+position = Vector2(307, 26)
+script = ExtResource("5_iywne")
+player = NodePath("../player")
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=1824702202]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -265.0
+offset_top = -349.0
+offset_right = -178.0
+offset_bottom = -307.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "0"

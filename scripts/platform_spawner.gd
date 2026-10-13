@@ -9,6 +9,7 @@ var spawn_distance: float = 400
 var min_gap: float = 80
 var max_gap: float = 100
 var platform_count = 0
+var display_score: float
 
 
 func _ready() -> void:
@@ -22,7 +23,12 @@ func _ready() -> void:
 		y -= 100
 		
 		
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	
+	var score = int(-highest_platform)
+	display_score = lerp(display_score, float(score), 1.0 - exp(-3 * delta))
+	$"../Camera2D/Label".text = str(int(display_score))
+	
 	if camera.global_position.y < highest_platform + spawn_distance:
 		var platform_to_spawn = randi_range(2,3)
 		
