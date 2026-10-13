@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ds8xpdlkfjtc8" path="res://assets/tilemap_packed.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cs0mukhta4gk4" path="res://scenes/player.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://pganb5h0v2y" path="res://scenes/platform_3.tscn" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://d4k55nsyqpiuf" path="res://assets/spritesheet-tiles-default.png" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://c0jmcvmfejwj5" path="res://scripts/camera.gd" id="5_iywne"]
+[ext_resource type="Script" uid="uid://4gqkrtv53g8q" path="res://scripts/platform_spawner.gd" id="5_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_yqjtg")
@@ -670,30 +670,6 @@ tile_set = SubResource("TileSet_qtct1")
 [node name="player" parent="." unique_id=1636324681 instance=ExtResource("2_lnu2h")]
 position = Vector2(275, 315)
 
-[node name="platform3" parent="." unique_id=857895639 instance=ExtResource("3_lnu2h")]
-position = Vector2(525, 221)
-
-[node name="platform4" parent="." unique_id=1916863966 instance=ExtResource("3_lnu2h")]
-position = Vector2(229, 167)
-
-[node name="platform5" parent="." unique_id=1667794091 instance=ExtResource("3_lnu2h")]
-position = Vector2(535, 6)
-
-[node name="platform6" parent="." unique_id=2093746457 instance=ExtResource("3_lnu2h")]
-position = Vector2(58, -83)
-
-[node name="platform7" parent="." unique_id=235511640 instance=ExtResource("3_lnu2h")]
-position = Vector2(310, -154)
-
-[node name="platform8" parent="." unique_id=545309946 instance=ExtResource("3_lnu2h")]
-position = Vector2(592, -305)
-
-[node name="platform9" parent="." unique_id=1037998017 instance=ExtResource("3_lnu2h")]
-position = Vector2(316, -397)
-
-[node name="platform10" parent="." unique_id=68875112 instance=ExtResource("3_lnu2h")]
-position = Vector2(80, -455)
-
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1214437316]
 tile_set = SubResource("TileSet_mwfs3")
 
@@ -701,3 +677,14 @@ tile_set = SubResource("TileSet_mwfs3")
 position = Vector2(307, 26)
 script = ExtResource("5_iywne")
 player = NodePath("../player")
+
+[node name="platform_spawner" type="Node" parent="." unique_id=1591493404]
+script = ExtResource("5_p57ef")
+
+[node name="Timer" type="Timer" parent="platform_spawner" unique_id=1327788645]
+wait_time = 3.0
+autostart = true
+
+[node name="platforms" type="Node" parent="." unique_id=1320457500]
+
+[connection signal="timeout" from="platform_spawner/Timer" to="platform_spawner" method="_on_timer_timeout"]
