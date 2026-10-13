@@ -1,13 +1,23 @@
 extends CharacterBody2D
+@onready var camera: Camera2D = $"../Camera2D"
 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var jumping
 var idle
+var highest_y = 0
 @export var start_position = Vector2(70,20)
 
 func _physics_process(delta: float) -> void:
+	
+	
+	
+	if position.y > highest_y and velocity.y < 0:
+		highest_y = position.y
+		camera.position_change(highest_y)
+		#if velocity.y < 0:
+			
 	
 	if is_on_floor():
 		jumping = false
@@ -25,10 +35,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		jumping = true
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
@@ -41,8 +47,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if velocity.y > 2000:
-		position = start_position
-		velocity.y = 0
+	
+	
+	#if velocity.y < 0:
+		#camera.position_change(position.y)
+		
 
 	move_and_slide()

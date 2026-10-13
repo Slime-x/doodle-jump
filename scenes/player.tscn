@@ -48,7 +48,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"jump",
-"speed": 4.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
@@ -66,6 +66,3 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1793362271]
 position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_g2els")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1973376236]
-position_smoothing_enabled = true
