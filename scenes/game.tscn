@@ -681,10 +681,4 @@ player = NodePath("../player")
 [node name="platform_spawner" type="Node" parent="." unique_id=1591493404]
 script = ExtResource("5_p57ef")
 
-[node name="Timer" type="Timer" parent="platform_spawner" unique_id=1327788645]
-wait_time = 3.0
-autostart = true
-
 [node name="platforms" type="Node" parent="." unique_id=1320457500]
-
-[connection signal="timeout" from="platform_spawner/Timer" to="platform_spawner" method="_on_timer_timeout"]
