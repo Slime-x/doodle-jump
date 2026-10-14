@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://d4k55nsyqpiuf" path="res://assets/spritesheet-tiles-default.png" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://c0jmcvmfejwj5" path="res://scripts/camera.gd" id="5_iywne"]
 [ext_resource type="Script" uid="uid://4gqkrtv53g8q" path="res://scripts/platform_spawner.gd" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://yyp7phmwihyl" path="res://scenes/background.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bgt3c3jaec8ra" path="res://scenes/ui.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_yqjtg")
@@ -664,7 +666,7 @@ sources/1 = SubResource("TileSetAtlasSource_iywne")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=484749215]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAABAAoAAAABAAEAAAACAAoAAAACAAEAAAADAAoAAAACAAEAAAAEAAoAAAACAAEAAAAFAAoAAAACAAEAAAAGAAoAAAACAAEAAAAHAAoAAAACAAEAAAAIAAoAAAACAAEAAAAJAAoAAAACAAEAAAAKAAoAAAACAAEAAAALAAoAAAACAAEAAAAMAAoAAAACAAEAAAANAAoAAAACAAEAAAAOAAoAAAACAAEAAAAPAAoAAAADAAEAAAAJAPv/AAANAAcAAAAKAPv/AAAOAAcAAAALAPv/AAAPAAcAAAA=")
+tile_map_data = PackedByteArray("AAABAAoAAAABAAEAAAACAAoAAAACAAEAAAADAAoAAAACAAEAAAAEAAoAAAACAAEAAAAFAAoAAAACAAEAAAAGAAoAAAACAAEAAAAHAAoAAAACAAEAAAAIAAoAAAACAAEAAAAJAAoAAAACAAEAAAAKAAoAAAACAAEAAAALAAoAAAACAAEAAAAMAAoAAAACAAEAAAANAAoAAAACAAEAAAAOAAoAAAACAAEAAAAPAAoAAAADAAEAAAA=")
 tile_set = SubResource("TileSet_qtct1")
 
 [node name="player" parent="." unique_id=1636324681 instance=ExtResource("2_lnu2h")]
@@ -697,3 +699,11 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
+
+[node name="background" parent="." unique_id=800875374 instance=ExtResource("6_p57ef")]
+offset_left = 41.0
+offset_top = -325.0
+offset_right = 572.0
+offset_bottom = 375.0
+
+[node name="UI" parent="." unique_id=249847023 instance=ExtResource("7_u5sy4")]

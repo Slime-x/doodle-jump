@@ -12,5 +12,5 @@ func _process(_delta: float) -> void:
 		highest_y = player.global_position.y
 		platform_position = highest_y - 200
 		global_position.y = highest_y
-	if player.global_position.y > highest_y + 350:
-		player.restart()
+	if player.global_position.y > highest_y + 345:
+		Gamemanager.restart()

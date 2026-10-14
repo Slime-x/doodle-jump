@@ -3,6 +3,7 @@ extends Node
 @onready var platform_scene = preload("res://scenes/platform_3.tscn")
 @onready var trampoline_scene = preload("res://scenes/trampoline.tscn")
 @onready var enemy_scene = preload("res://scenes/enemy.tscn")
+@onready var background_scene = preload("res://scenes/background.tscn")
 
 var highest_platform: float
 var spawn_distance: float = 400
@@ -10,7 +11,8 @@ var min_gap: float = 80
 var max_gap: float = 100
 var platform_count = 0
 var display_score: float
-
+var area = 1
+var screen_height = 702
 
 func _ready() -> void:
 	var y = 150
@@ -24,10 +26,18 @@ func _ready() -> void:
 		
 		
 func _process(delta: float) -> void:
-	
-	var score = int(-highest_platform)
-	display_score = lerp(display_score, float(score), 1.0 - exp(-3 * delta))
+
+	Gamemanager.score = int(-highest_platform)
+	display_score = lerp(display_score, float(Gamemanager.score), 1.0 - exp(-3 * delta))
 	$"../Camera2D/Label".text = str(int(display_score))
+	Gamemanager.new_platform = int(highest_platform)
+	
+	
+	if Gamemanager.score > screen_height-702:
+		background_spawn(screen_height)
+		screen_height += 702
+	
+	
 	
 	if camera.global_position.y < highest_platform + spawn_distance:
 		var platform_to_spawn = randi_range(2,3)
@@ -56,6 +66,12 @@ func spawn_at(y):
 	if randi() % 100 + 1 > 95:
 		new_trampoline.position = Vector2(x_position, y)
 		get_parent().get_node("platforms").add_child(new_enemy)
+		
+func background_spawn(x):
+	var new_background = background_scene.instantiate()
+	new_background.position = Vector2(41, -x)
+	get_parent().get_node("platforms").add_child(new_background)
+	
 		
 	
 	

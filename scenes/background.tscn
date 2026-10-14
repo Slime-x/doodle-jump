@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://yyp7phmwihyl"]
+
+[ext_resource type="Texture2D" uid="uid://d0cbmmx7v50lt" path="res://assets/background_1.png" id="1_bkp1e"]
+[ext_resource type="Script" uid="uid://jjagraheco33" path="res://scripts/background.gd" id="1_jougr"]
+[ext_resource type="Texture2D" uid="uid://cduj2rn56o64x" path="res://assets/background_3.png" id="2_y0upk"]
+
+[node name="background" type="ColorRect" unique_id=800875374]
+z_index = -5
+offset_top = -19.0
+offset_right = 536.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_jougr")
+
+[node name="Background1" type="Sprite2D" parent="." unique_id=1877422069]
+position = Vector2(261.99997, 350.99994)
+scale = Vector2(2.1640623, 3.0982144)
+texture = ExtResource("1_bkp1e")
+
+[node name="Background3" type="Sprite2D" parent="." unique_id=1028803580]
+position = Vector2(265.5, 351)
+scale = Vector2(2.0742188, 3.1339283)
+texture = ExtResource("2_y0upk")

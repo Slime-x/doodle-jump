@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://pganb5h0v2y"]
 
+[ext_resource type="Script" uid="uid://esf3vkp5erqx" path="res://scripts/platform.gd" id="1_1bif0"]
 [ext_resource type="Texture2D" uid="uid://d4k55nsyqpiuf" path="res://assets/spritesheet-tiles-default.png" id="1_rydyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtct1"]
 size = Vector2(61.25, 13)
 
 [node name="platform3" type="AnimatableBody2D" unique_id=857895639]
+script = ExtResource("1_1bif0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=730722073]
 position = Vector2(-15, 16)
