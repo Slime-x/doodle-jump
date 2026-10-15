@@ -2,7 +2,8 @@
 
 Playable Link: https://slime001.itch.io/space-jump
 
-A doodle jump like game that i wanted to build. Made with Love. 
+A doodle jump like game that i wanted to build. Made Using Godot and gdscript. 
+
 <br>
 <h2> Controls </h2>
 [A],[<-] = Move Left<br>
