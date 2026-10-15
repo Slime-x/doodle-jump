@@ -27,8 +27,8 @@ Yes, I did use AI a lil bit. Idk exactly where but i was getting stuck on a prob
 
 <h2> Credit </h2>
 
-Platform(Kenny's new platformer asset): https://kenney.nl/assets/new-platformer-pack
-Music ( brackeys platformer asset):  https://brackeysgames.itch.io/brackeys-platformer-bundle
+Platform(Kenny's new platformer asset): https://kenney.nl/assets/new-platformer-pack <br>
+Music ( brackeys platformer asset):  https://brackeysgames.itch.io/brackeys-platformer-bundle <br>
 Background: found it on the internet randomly somewhere
 <br><br>
 
