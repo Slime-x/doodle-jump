@@ -13,10 +13,11 @@ func _process(_delta: float) -> void:
 		highest_y = player.global_position.y
 		platform_position = highest_y - 200
 		global_position.y = highest_y
+		
 	if player.global_position.y > highest_y + 345:
 		if not Gamemanager.dead:
 			$death.play()
 			Gamemanager.dead = true
-		await $death.finished
-		Gamemanager.restart()
+			await $death.finished
+			Gamemanager.restart()
 		

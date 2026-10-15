@@ -16,19 +16,15 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("unpause"):
 		unpause()
 		UI.in_game()
-		print("restart")
 	
 
 func restart():
 	var UI = get_tree().current_scene.get_node("UI")
 	if score > high_score:
 		high_score = score
-		UI.highscore.text = "High Score: " + str(high_score)
 	pause()
-	UI.in_death_screen()
+	get_tree().call_deferred("reload_current_scene")
 	dead = false
-	get_tree().reload_current_scene.call_deferred()
-	
 	
 func pause():
 	get_tree().paused = true
