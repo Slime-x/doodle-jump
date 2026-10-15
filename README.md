@@ -5,9 +5,9 @@ Playable Link: https://slime001.itch.io/space-jump
 A doodle jump like game that i wanted to build. Made with Love. 
 <br>
 <h2> Controls </h2>
-[A],[<-] = Move Left
-[D], [->] = Move Right
-[Click] = play game
+[A],[<-] = Move Left<br>
+[D], [->] = Move Right<br>
+[Click] = play game<br>
 <br>
 
 <h2> How to play? </h2>
