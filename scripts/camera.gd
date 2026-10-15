@@ -1,5 +1,6 @@
 extends Camera2D
 
+
 @export var player: CharacterBody2D
 var highest_y: float
 var platform_position
@@ -13,4 +14,9 @@ func _process(_delta: float) -> void:
 		platform_position = highest_y - 200
 		global_position.y = highest_y
 	if player.global_position.y > highest_y + 345:
+		if not Gamemanager.dead:
+			$death.play()
+			Gamemanager.dead = true
+		await $death.finished
 		Gamemanager.restart()
+		

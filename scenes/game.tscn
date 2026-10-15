@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://4gqkrtv53g8q" path="res://scripts/platform_spawner.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://yyp7phmwihyl" path="res://scenes/background.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bgt3c3jaec8ra" path="res://scenes/ui.tscn" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://c1mmvd25j1ugm" path="res://assets/jump.wav" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://ulgnw0gg3iyc" path="res://assets/hurt.wav" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_yqjtg")
@@ -700,6 +702,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
 
+[node name="death" type="AudioStreamPlayer" parent="Camera2D" unique_id=563339131]
+stream = ExtResource("9_0tnpc")
+
 [node name="background" parent="." unique_id=800875374 instance=ExtResource("6_p57ef")]
 offset_left = 41.0
 offset_top = -325.0
@@ -707,3 +712,7 @@ offset_right = 572.0
 offset_bottom = 375.0
 
 [node name="UI" parent="." unique_id=249847023 instance=ExtResource("7_u5sy4")]
+
+[node name="jump" type="AudioStreamPlayer" parent="." unique_id=499946455]
+stream = ExtResource("8_gee14")
+volume_db = -18.965

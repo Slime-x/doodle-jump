@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnfvbguer5qpw" path="res://assets/slime_green.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://ek85i4bih4xq" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="AudioStream" uid="uid://ulgnw0gg3iyc" path="res://assets/hurt.wav" id="3_4ra3w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("1_7p1mj")
@@ -44,6 +45,7 @@ size = Vector2(12, 11.5)
 
 [node name="enemy" type="Area2D" unique_id=1453725729]
 scale = Vector2(1.5, 1.5)
+collision_mask = 2
 script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=572645137]
@@ -58,5 +60,8 @@ frame_progress = 0.987375
 position = Vector2(7, 13)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_mwfs3")
+
+[node name="death" type="AudioStreamPlayer" parent="." unique_id=1991578224]
+stream = ExtResource("3_4ra3w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

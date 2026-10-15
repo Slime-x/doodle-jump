@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbhmxa2342n7h" path="res://scripts/trampoline.gd" id="1_nytqh"]
 [ext_resource type="Texture2D" uid="uid://d4k55nsyqpiuf" path="res://assets/spritesheet-tiles-default.png" id="2_1ne3y"]
+[ext_resource type="AudioStream" uid="uid://1oyjwivhcqp2" path="res://assets/power_up.wav" id="3_1ne3y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gay0"]
 atlas = ExtResource("2_1ne3y")
@@ -35,6 +36,7 @@ size = Vector2(57, 4)
 
 [node name="trampoline" type="Area2D" unique_id=1978877864]
 scale = Vector2(0.5, 0.5)
+collision_mask = 2
 script = ExtResource("1_nytqh")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1625981049]
@@ -46,5 +48,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026523699]
 position = Vector2(-0.5, -32)
 shape = SubResource("RectangleShape2D_mwfs3")
+
+[node name="trampoline_" type="AudioStreamPlayer" parent="." unique_id=1315599231]
+stream = ExtResource("3_1ne3y")
+volume_db = -12.655
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

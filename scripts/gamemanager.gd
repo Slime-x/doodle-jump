@@ -4,6 +4,7 @@ extends Node
 var score
 var high_score:int = 0
 var new_platform
+var dead:bool = false
 
 
 func _ready() -> void:
@@ -25,8 +26,9 @@ func restart():
 		UI.highscore.text = "High Score: " + str(high_score)
 	pause()
 	UI.in_death_screen()
-	print("died")
+	dead = false
 	get_tree().reload_current_scene.call_deferred()
+	
 	
 func pause():
 	get_tree().paused = true

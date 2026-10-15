@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @onready var camera: Camera2D = $"../Camera2D"
+@onready var jump: AudioStreamPlayer = $"../jump"
+
 
 
 const SPEED = 300.0
@@ -17,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jumping = false
 		velocity.y += -700
+		jump.play()
 		
 	# Add the gravity.
 	if not is_on_floor():

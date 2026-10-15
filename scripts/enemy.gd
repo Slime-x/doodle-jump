@@ -5,4 +5,6 @@ func _process(_delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(_body: Node2D) -> void:
+	$death.play()
+	await $death.finished
 	Gamemanager.restart()
